@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package randomPackage;
+
+service Random {
+    // Client Stream
+    rpc pingPong (pingRequest) returns (pongResponse) {};
+}
+
+message pingRequest {
+    string message = 1;
+}
+
+message pongResponse {
+    string message = 1;
+}
+
+message pongResponse {
+    string message = 1;
+}
+message pongResponse {
+    string message = 1;
+}
+
