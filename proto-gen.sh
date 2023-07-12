@@ -1,3 +1,3 @@
 #!/bin/bash
 
-yarn proto-loader-gen-types --grpcLib=@grp/grpc-js --outDir=proto/ proto/*.proto
+yarn proto-loader-gen-types --grpcLib=@grpc/grpc-js --outDir=proto/ proto/*.proto

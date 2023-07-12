@@ -24,42 +24,66 @@ client.waitForReady(deadline, (err) => {
 })
 
 function onClientReady() {
-    // Client ping-pong streaming service (1-1)
-    client.PingPong({message: "Ping"}, (err, result) => {
-        if(err){
-            console.error(err)
-            return
-        }
+    // // Client ping-pong streaming service (1-1)
+    // client.PingPong({message: "Ping"}, (err, result) => {
+    //     if(err){
+    //         console.error(err)
+    //         return
+    //     }
 
-        console.log(result)
-    })
+    //     console.log(result)
+    // })
     
-    // Server random numbers streaming service (1-n)
-    const numberStream = client.RandomNumbers({maxValue: 85})
-    numberStream.on("data", (chunk) => {
-        console.log(chunk)
-    })
+    // // Server random numbers streaming service (1-n)
+    // const numberStream = client.RandomNumbers({maxVal: 85})
+    // numberStream.on("data", (chunk) => {
+    //     console.log(chunk)
+    // })
     
-    numberStream.on("end", () => {
-        console.log("Communication ended.")
-    })
+    // numberStream.on("end", () => {
+    //     console.log("Communication ended.")
+    // })
 
-    // Client todo list service (n-1)
-    const stream2 = client.TodoList((err, result) => {
-        if (err) {
-          console.error(err)
-          return
-        }
-        console.log(result)
-      })
-      stream2.write({todo: "Walk the wife", status: "Never"})
-      stream2.write({todo: "Walk the dog", status: "Doing"})
-      stream2.write({todo: "Get a real job", status: "Impossible"})
-      stream2.write({todo: "Feed the dog", status: "Done"})
-      stream2.end()
-    
-      const rl = readline.createInterface({
+    // // Client todo list service (n-1)
+    // const stream2 = client.TodoList((err, result) => {
+    //     if (err) {
+    //       console.error(err)
+    //       return
+    //     }
+    //     console.log(result)
+    // })
+
+    // stream2.write({todo: "Walk the wife", status: "Never"})
+    // stream2.write({todo: "Walk the dog", status: "Doing"})
+    // stream2.write({todo: "Get a real job", status: "Impossible"})
+    // stream2.write({todo: "Feed the dog", status: "Done"})
+    // stream2.end()
+
+    // Chat bi-directional Streaming service (n-n)
+    const rl = readline.createInterface({
         input: process.stdin,
         output: process.stdout
-      })
+    })
+    
+    const metadata = new grpc.Metadata()
+    metadata.set("username", 'User')
+    const call = client.Chat(metadata)
+    
+    call.write({
+      message: "has register"
+    })
+
+    call.on("data", (chunk) => {
+        console.log(`${chunk.username} ==> ${chunk.message}`)
+    })
+    
+    rl.on("line", (line) => {
+        if(line === "quit") {
+          call.end()
+        }else {
+            call.write({
+                message: line
+            })
+        }
+    })
 }
