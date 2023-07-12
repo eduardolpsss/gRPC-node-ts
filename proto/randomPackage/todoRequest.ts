@@ -1,12 +1,12 @@
 // Original file: proto/random.proto
 
 
-export interface todoRequest {
+export interface TodoRequest {
   'todo'?: (string);
   'status'?: (string);
 }
 
-export interface todoRequest__Output {
+export interface TodoRequest__Output {
   'todo'?: (string);
   'status'?: (string);
 }

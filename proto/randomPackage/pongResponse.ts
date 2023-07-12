@@ -1,10 +1,10 @@
 // Original file: proto/random.proto
 
 
-export interface pongResponse {
+export interface PongResponse {
   'message'?: (string);
 }
 
-export interface pongResponse__Output {
+export interface PongResponse__Output {
   'message'?: (string);
 }

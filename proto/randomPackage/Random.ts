@@ -2,50 +2,60 @@
 
 import type * as grpc from '@grpc/grpc-js'
 import type { MethodDefinition } from '@grpc/proto-loader'
-import type { numberRequest as _randomPackage_numberRequest, numberRequest__Output as _randomPackage_numberRequest__Output } from '../randomPackage/numberRequest';
-import type { numberResponse as _randomPackage_numberResponse, numberResponse__Output as _randomPackage_numberResponse__Output } from '../randomPackage/numberResponse';
-import type { pingRequest as _randomPackage_pingRequest, pingRequest__Output as _randomPackage_pingRequest__Output } from '../randomPackage/pingRequest';
-import type { pongResponse as _randomPackage_pongResponse, pongResponse__Output as _randomPackage_pongResponse__Output } from '../randomPackage/pongResponse';
-import type { todoRequest as _randomPackage_todoRequest, todoRequest__Output as _randomPackage_todoRequest__Output } from '../randomPackage/todoRequest';
-import type { todoResponse as _randomPackage_todoResponse, todoResponse__Output as _randomPackage_todoResponse__Output } from '../randomPackage/todoResponse';
+import type { ChatRequest as _randomPackage_ChatRequest, ChatRequest__Output as _randomPackage_ChatRequest__Output } from '../randomPackage/ChatRequest';
+import type { ChatResponse as _randomPackage_ChatResponse, ChatResponse__Output as _randomPackage_ChatResponse__Output } from '../randomPackage/ChatResponse';
+import type { NumberRequest as _randomPackage_NumberRequest, NumberRequest__Output as _randomPackage_NumberRequest__Output } from '../randomPackage/NumberRequest';
+import type { NumberResponse as _randomPackage_NumberResponse, NumberResponse__Output as _randomPackage_NumberResponse__Output } from '../randomPackage/NumberResponse';
+import type { PingRequest as _randomPackage_PingRequest, PingRequest__Output as _randomPackage_PingRequest__Output } from '../randomPackage/PingRequest';
+import type { PongResponse as _randomPackage_PongResponse, PongResponse__Output as _randomPackage_PongResponse__Output } from '../randomPackage/PongResponse';
+import type { TodoRequest as _randomPackage_TodoRequest, TodoRequest__Output as _randomPackage_TodoRequest__Output } from '../randomPackage/TodoRequest';
+import type { TodoResponse as _randomPackage_TodoResponse, TodoResponse__Output as _randomPackage_TodoResponse__Output } from '../randomPackage/TodoResponse';
 
 export interface RandomClient extends grpc.Client {
-  PingPong(argument: _randomPackage_pingRequest, metadata: grpc.Metadata, options: grpc.CallOptions, callback: grpc.requestCallback<_randomPackage_pongResponse__Output>): grpc.ClientUnaryCall;
-  PingPong(argument: _randomPackage_pingRequest, metadata: grpc.Metadata, callback: grpc.requestCallback<_randomPackage_pongResponse__Output>): grpc.ClientUnaryCall;
-  PingPong(argument: _randomPackage_pingRequest, options: grpc.CallOptions, callback: grpc.requestCallback<_randomPackage_pongResponse__Output>): grpc.ClientUnaryCall;
-  PingPong(argument: _randomPackage_pingRequest, callback: grpc.requestCallback<_randomPackage_pongResponse__Output>): grpc.ClientUnaryCall;
-  pingPong(argument: _randomPackage_pingRequest, metadata: grpc.Metadata, options: grpc.CallOptions, callback: grpc.requestCallback<_randomPackage_pongResponse__Output>): grpc.ClientUnaryCall;
-  pingPong(argument: _randomPackage_pingRequest, metadata: grpc.Metadata, callback: grpc.requestCallback<_randomPackage_pongResponse__Output>): grpc.ClientUnaryCall;
-  pingPong(argument: _randomPackage_pingRequest, options: grpc.CallOptions, callback: grpc.requestCallback<_randomPackage_pongResponse__Output>): grpc.ClientUnaryCall;
-  pingPong(argument: _randomPackage_pingRequest, callback: grpc.requestCallback<_randomPackage_pongResponse__Output>): grpc.ClientUnaryCall;
+  Chat(metadata: grpc.Metadata, options?: grpc.CallOptions): grpc.ClientDuplexStream<_randomPackage_ChatRequest, _randomPackage_ChatResponse__Output>;
+  Chat(options?: grpc.CallOptions): grpc.ClientDuplexStream<_randomPackage_ChatRequest, _randomPackage_ChatResponse__Output>;
+  chat(metadata: grpc.Metadata, options?: grpc.CallOptions): grpc.ClientDuplexStream<_randomPackage_ChatRequest, _randomPackage_ChatResponse__Output>;
+  chat(options?: grpc.CallOptions): grpc.ClientDuplexStream<_randomPackage_ChatRequest, _randomPackage_ChatResponse__Output>;
   
-  RandomNumbers(argument: _randomPackage_numberRequest, metadata: grpc.Metadata, options?: grpc.CallOptions): grpc.ClientReadableStream<_randomPackage_numberResponse__Output>;
-  RandomNumbers(argument: _randomPackage_numberRequest, options?: grpc.CallOptions): grpc.ClientReadableStream<_randomPackage_numberResponse__Output>;
-  randomNumbers(argument: _randomPackage_numberRequest, metadata: grpc.Metadata, options?: grpc.CallOptions): grpc.ClientReadableStream<_randomPackage_numberResponse__Output>;
-  randomNumbers(argument: _randomPackage_numberRequest, options?: grpc.CallOptions): grpc.ClientReadableStream<_randomPackage_numberResponse__Output>;
+  PingPong(argument: _randomPackage_PingRequest, metadata: grpc.Metadata, options: grpc.CallOptions, callback: grpc.requestCallback<_randomPackage_PongResponse__Output>): grpc.ClientUnaryCall;
+  PingPong(argument: _randomPackage_PingRequest, metadata: grpc.Metadata, callback: grpc.requestCallback<_randomPackage_PongResponse__Output>): grpc.ClientUnaryCall;
+  PingPong(argument: _randomPackage_PingRequest, options: grpc.CallOptions, callback: grpc.requestCallback<_randomPackage_PongResponse__Output>): grpc.ClientUnaryCall;
+  PingPong(argument: _randomPackage_PingRequest, callback: grpc.requestCallback<_randomPackage_PongResponse__Output>): grpc.ClientUnaryCall;
+  pingPong(argument: _randomPackage_PingRequest, metadata: grpc.Metadata, options: grpc.CallOptions, callback: grpc.requestCallback<_randomPackage_PongResponse__Output>): grpc.ClientUnaryCall;
+  pingPong(argument: _randomPackage_PingRequest, metadata: grpc.Metadata, callback: grpc.requestCallback<_randomPackage_PongResponse__Output>): grpc.ClientUnaryCall;
+  pingPong(argument: _randomPackage_PingRequest, options: grpc.CallOptions, callback: grpc.requestCallback<_randomPackage_PongResponse__Output>): grpc.ClientUnaryCall;
+  pingPong(argument: _randomPackage_PingRequest, callback: grpc.requestCallback<_randomPackage_PongResponse__Output>): grpc.ClientUnaryCall;
   
-  TodoList(metadata: grpc.Metadata, options: grpc.CallOptions, callback: grpc.requestCallback<_randomPackage_todoResponse__Output>): grpc.ClientWritableStream<_randomPackage_todoRequest>;
-  TodoList(metadata: grpc.Metadata, callback: grpc.requestCallback<_randomPackage_todoResponse__Output>): grpc.ClientWritableStream<_randomPackage_todoRequest>;
-  TodoList(options: grpc.CallOptions, callback: grpc.requestCallback<_randomPackage_todoResponse__Output>): grpc.ClientWritableStream<_randomPackage_todoRequest>;
-  TodoList(callback: grpc.requestCallback<_randomPackage_todoResponse__Output>): grpc.ClientWritableStream<_randomPackage_todoRequest>;
-  todoList(metadata: grpc.Metadata, options: grpc.CallOptions, callback: grpc.requestCallback<_randomPackage_todoResponse__Output>): grpc.ClientWritableStream<_randomPackage_todoRequest>;
-  todoList(metadata: grpc.Metadata, callback: grpc.requestCallback<_randomPackage_todoResponse__Output>): grpc.ClientWritableStream<_randomPackage_todoRequest>;
-  todoList(options: grpc.CallOptions, callback: grpc.requestCallback<_randomPackage_todoResponse__Output>): grpc.ClientWritableStream<_randomPackage_todoRequest>;
-  todoList(callback: grpc.requestCallback<_randomPackage_todoResponse__Output>): grpc.ClientWritableStream<_randomPackage_todoRequest>;
+  RandomNumbers(argument: _randomPackage_NumberRequest, metadata: grpc.Metadata, options?: grpc.CallOptions): grpc.ClientReadableStream<_randomPackage_NumberResponse__Output>;
+  RandomNumbers(argument: _randomPackage_NumberRequest, options?: grpc.CallOptions): grpc.ClientReadableStream<_randomPackage_NumberResponse__Output>;
+  randomNumbers(argument: _randomPackage_NumberRequest, metadata: grpc.Metadata, options?: grpc.CallOptions): grpc.ClientReadableStream<_randomPackage_NumberResponse__Output>;
+  randomNumbers(argument: _randomPackage_NumberRequest, options?: grpc.CallOptions): grpc.ClientReadableStream<_randomPackage_NumberResponse__Output>;
+  
+  TodoList(metadata: grpc.Metadata, options: grpc.CallOptions, callback: grpc.requestCallback<_randomPackage_TodoResponse__Output>): grpc.ClientWritableStream<_randomPackage_TodoRequest>;
+  TodoList(metadata: grpc.Metadata, callback: grpc.requestCallback<_randomPackage_TodoResponse__Output>): grpc.ClientWritableStream<_randomPackage_TodoRequest>;
+  TodoList(options: grpc.CallOptions, callback: grpc.requestCallback<_randomPackage_TodoResponse__Output>): grpc.ClientWritableStream<_randomPackage_TodoRequest>;
+  TodoList(callback: grpc.requestCallback<_randomPackage_TodoResponse__Output>): grpc.ClientWritableStream<_randomPackage_TodoRequest>;
+  todoList(metadata: grpc.Metadata, options: grpc.CallOptions, callback: grpc.requestCallback<_randomPackage_TodoResponse__Output>): grpc.ClientWritableStream<_randomPackage_TodoRequest>;
+  todoList(metadata: grpc.Metadata, callback: grpc.requestCallback<_randomPackage_TodoResponse__Output>): grpc.ClientWritableStream<_randomPackage_TodoRequest>;
+  todoList(options: grpc.CallOptions, callback: grpc.requestCallback<_randomPackage_TodoResponse__Output>): grpc.ClientWritableStream<_randomPackage_TodoRequest>;
+  todoList(callback: grpc.requestCallback<_randomPackage_TodoResponse__Output>): grpc.ClientWritableStream<_randomPackage_TodoRequest>;
   
 }
 
 export interface RandomHandlers extends grpc.UntypedServiceImplementation {
-  PingPong: grpc.handleUnaryCall<_randomPackage_pingRequest__Output, _randomPackage_pongResponse>;
+  Chat: grpc.handleBidiStreamingCall<_randomPackage_ChatRequest__Output, _randomPackage_ChatResponse>;
   
-  RandomNumbers: grpc.handleServerStreamingCall<_randomPackage_numberRequest__Output, _randomPackage_numberResponse>;
+  PingPong: grpc.handleUnaryCall<_randomPackage_PingRequest__Output, _randomPackage_PongResponse>;
   
-  TodoList: grpc.handleClientStreamingCall<_randomPackage_todoRequest__Output, _randomPackage_todoResponse>;
+  RandomNumbers: grpc.handleServerStreamingCall<_randomPackage_NumberRequest__Output, _randomPackage_NumberResponse>;
+  
+  TodoList: grpc.handleClientStreamingCall<_randomPackage_TodoRequest__Output, _randomPackage_TodoResponse>;
   
 }
 
 export interface RandomDefinition extends grpc.ServiceDefinition {
-  PingPong: MethodDefinition<_randomPackage_pingRequest, _randomPackage_pongResponse, _randomPackage_pingRequest__Output, _randomPackage_pongResponse__Output>
-  RandomNumbers: MethodDefinition<_randomPackage_numberRequest, _randomPackage_numberResponse, _randomPackage_numberRequest__Output, _randomPackage_numberResponse__Output>
-  TodoList: MethodDefinition<_randomPackage_todoRequest, _randomPackage_todoResponse, _randomPackage_todoRequest__Output, _randomPackage_todoResponse__Output>
+  Chat: MethodDefinition<_randomPackage_ChatRequest, _randomPackage_ChatResponse, _randomPackage_ChatRequest__Output, _randomPackage_ChatResponse__Output>
+  PingPong: MethodDefinition<_randomPackage_PingRequest, _randomPackage_PongResponse, _randomPackage_PingRequest__Output, _randomPackage_PongResponse__Output>
+  RandomNumbers: MethodDefinition<_randomPackage_NumberRequest, _randomPackage_NumberResponse, _randomPackage_NumberRequest__Output, _randomPackage_NumberResponse__Output>
+  TodoList: MethodDefinition<_randomPackage_TodoRequest, _randomPackage_TodoResponse, _randomPackage_TodoRequest__Output, _randomPackage_TodoResponse__Output>
 }

@@ -1,10 +1,10 @@
 // Original file: proto/random.proto
 
 
-export interface numberResponse {
-  'responseValue'?: (number);
+export interface NumberResponse {
+  'num'?: (number);
 }
 
-export interface numberResponse__Output {
-  'responseValue'?: (number);
+export interface NumberResponse__Output {
+  'num'?: (number);
 }

@@ -1,10 +1,10 @@
 // Original file: proto/random.proto
 
 
-export interface numberRequest {
-  'maxValue'?: (number);
+export interface NumberRequest {
+  'maxVal'?: (number);
 }
 
-export interface numberRequest__Output {
-  'maxValue'?: (number);
+export interface NumberRequest__Output {
+  'maxVal'?: (number);
 }
