@@ -3,8 +3,14 @@ syntax = "proto3";
 package randomPackage;
 
 service Random {
-    // Client Stream
-    rpc pingPong (pingRequest) returns (pongResponse) {};
+    // Client ping to server service (1-1)
+    rpc PingPong (pingRequest) returns (pongResponse) {};
+
+    // Server side Streaming service (1-n)
+    rpc RandomNumbers (numberRequest) returns (stream numberResponse) {};
+
+    // Client side Streaming service (n-1)
+    rpc TodoList (stream todoRequest) returns (todoResponse) {};
 }
 
 message pingRequest {
@@ -15,10 +21,20 @@ message pongResponse {
     string message = 1;
 }
 
-message pongResponse {
-    string message = 1;
+message numberRequest {
+    int32 maxValue = 1;
 }
-message pongResponse {
-    string message = 1;
+
+message numberResponse {
+    int32 responseValue = 1;
+}
+
+message todoRequest {
+    string todo = 1;
+    string status = 2;
+}
+
+message todoResponse {
+    repeated todoRequest todos = 1;
 }
 
